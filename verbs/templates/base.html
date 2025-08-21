@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en-GB" itemscope itemtype="http://schema.org/Article">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-GB" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css">
+    <title>verbs: feature [1]</title>
+  </head>
+  <body id="body" data-access="0">
+    <main id="main">
+      <article>
+           {% block content %}{% endblock content %}
+      </article>
+    </main>
+    <footer>
+    <p> #leSigh Contact Owen Beresford, @channelOwen@fosstodon.org to pay me at random, or for errors </p>  
+  </footer>
+  <style>
+/* add favico, most CSS to separate file 
+I wish I could make the CSS based form buttons validation work for keyboard events, its just mouse/ finger :-( */
+body {
+  --fgcontrast: 0.95;
+  --bgcontrast: 1;
+  --fgr: 37;
+  --fgg: 37;
+  --fgb: 37;
+  --bgr: 255;
+  --bgg: 255;
+  --bgb: 250;
+  --errorbg: #7d0000;
+  --starkfg: #fff;
+  --hardfg: #aaa;
+  --scroll1: darkgrey;
+  --scroll2: slategrey;
+  --attentionbg: #2ba6cb;
+}
+.tabContainer .tabHeader:has( input:checked ) label:has( input:checked ) {
+  --bgr: 215;
+  --bgg: 242;
+  --bgb: 250;
+  --fgr: 37;
+  --fgg: 37;
+  --fgb: 37;
+}
+
+
+
+.tabContainer .tabContent>* {
+  display: none;
+  margin-top: 2em;
+}
+
+.tabContainer:has( #tabExplore > input[type="radio"]:checked ) #panelExplore>*,
+.tabContainer:has( #tabChoice > input[type="radio"]:checked ) #panelChoice>*,
+.tabContainer:has( #tabExport > input[type="radio"]:checked ) #panelExport>*
+ {
+  display: inline-block;
+  transition: all 0.5s ease;
+  min-width: 90%;
+  max-width: 100%;
+}
+
+.tabContainer  .tabContent {
+  border-top: 1px solid #e6e6e6;
+  max-width: 25em;
+  width: fit-content;
+  display: inline-block;
+  background: inherit;
+}
+
+.tabContainer label {
+  white-space: nowrap;
+  margin-top: 2em;
+}
+.tabContainer .tabHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.tabContainer .tabHeader label {
+  background-color: rgba(
+    calc(var(--bgr) * var(--bgcontrast)),
+    calc(var(--bgg) * var(--bgcontrast)),
+    calc(var(--bgb) * var(--bgcontrast)),
+    1
+  );
+}
+
+
+@media screen and (min-resolution: 150dpi) {
+  .tabContainer .tabContent {
+    max-width: 100%;
+    min-width: 90%;
+  }
+
+  /* vague to set both tabs */
+  .tabContainer .tabContent:has(label > input[type="radio"]:checked) ul {
+    min-width: 90vw;
+  }
+}
+
+.tabContainer label {
+  padding: 1em;
+  min-width: 8em;
+  text-align: center;
+}
+
+.tabContainer label {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 1em;
+  background: transparent;
+}
+.tabContainer input[type="radio"] {
+  visibility: hidden;
+  display: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.column.tabContainer {
+  min-width: min(100%, 400px);
+  max-width: 40%;
+  flex: inherit;
+}
+
+/* test on more phones, I need to use this value, that doesn't work in the fake phone in chrome */
+@media screen and (min-resolution: 150dpi) {
+  .tabContainer label {
+    top: 0em;
+  }
+}
+
+
+  .formComponent { margin-top:3em; margin-bottom:3em; margin-left:20%; white-space:nowrap; }
+  .formComponent label { display:block; white-space:nobreak; }
+  .formComponent textarea { max-width:40em; }
+  .statefulFormComponent .formComponent input:invalid { background:#ffd6d6; } 
+  .statefulFormComponent .formComponent textarea:not( :placeholder-shown ):invalid { background:#ffd6d6; } 
+  .statefulFormComponent form:has( input:invalid, textarea:invalid, select:invalid ) .statefulButton 
+	{ pointer-events: none;  background-color: ##c8c8c8;  color: #fefefe; }
+  .statefulFormComponent form:has( input:invalid, textarea:invalid, select:invalid ) .cursorWrap 
+	{ cursor:not-allowed; }  
+/* sdd one cycle animation when its a valid form */ 
+	label.cursorWrap:has( input[type="submit"] ) { text-align:right; margin-right:10%; width: 100%; }
+ 
+  .resultsComponent p { display:block; width:fit-content; max-width:40em; }
+  @media screen and max-width:40em {
+	.resultsComponent p { max-width:100%; }
+   }
+  .resultsComponent select { max-width:10em; width:fit-content; }
+  section p { text-align:center; }
+ .row { margin: 0; max-width: 100%; min-width:fit-content; display: flex; flex-direction: row; 
+		height:min( 50em, 100vh ); justify-content: center; }
+
+  footer { margin:2em 1em; font-size:90%; text-align:center; }
+  footer:before { content:"“"; font-size:250%; color:#aaa; text-align: left; padding-right:0.5em; line-height:0.5; }
+  footer:after { content:"„"; font-size:250%; color:#aaa; text-align: right; padding-left:0.5em; line-height:0.5; }
+  footer p { display:inline-block; }
+
+  .notice { padding:1em; margin-left:20% }
+  </style>
+  </body>
+</html>

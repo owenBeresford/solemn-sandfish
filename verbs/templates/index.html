@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+<div class="column tabContainer">
+	<header class="tabHeader" role="tablist">
+		<label title="XXX" role="tab" id="tabExplore" aria-controls="panelExplore">
+			Explore <input id="articles" type="radio" value="explore" {% if firsttab == "explore" %}checked=""{% endif %} name="tabs" />
+		</label>
+		<label title="XXX" role="tab" id="tabChoice" aria-controls="panelChoice">
+			 Choose Verbs <input id="projects" type="radio" value="choice" {% if firsttab == "choice" %}checked=""{% endif %} name="tabs" />
+		</label>
+		<label title="XXX" role="tab" id="tabExport" aria-controls="panelExport">
+			 Export <input id="projects" type="radio" value="export" {% if firsttab == "export" %}checked=""{% endif %} name="tabs" />
+		</label>
+	</header>
+
+	<section class="tabContent" role="tabpanel" aria-labelledby="tabExplore" id="panelExplore" tabindex="-1">
+		 <div class="statefulFormComponent"> 
+		  <form action="/v1/map-verbs" method="post" class="formComponent">
+				<label>
+					Languages available:
+					<input readonly name="" value="English (en_GB)" />
+				</label>
+			  <label title="Branka: Enter your initial sample of text here, to discover your weak verbs. ">
+				  Enter text to improve: 
+				  <textarea required="true" autocomplete="off" placeholder="[At least one verb]" name="smpl" id="smpl" rows=10 cols="50" minlength="3" maxlength="10000">{{ smpl }} </textarea>
+			  </label>
+			  <label class="cursorWrap" title="Branka: use this button to highlight the your current weak verbs">
+			  <input class="button statefulButton" type="submit" value="Explore wording" />
+			  </label>
+		  </form>
+		 </div> 
+	</section>
+
+	<section class="tabContent" role="tabpanel" aria-labelledby="tabChoice" id="panelChoice" tabindex="-1">
+{% if choice %}
+		 <div class="resultsComponent statefulFormComponent"> 
+		   <form action="/v1/export-text" method="post" class="formComponent">
+			<p> Explore alternative verbs:
+			<p>
+				{% for  word in choice %}
+					{% if word.0 == "list_follows" %}
+						<select name="word{{ forloop.counter }}" title="[Branka] Select one of the stronger verbs from this list." required>
+							<option value="" disabled selected hidden>Choose option</option>
+							{% for opt in word %}
+								{% if opt != "list_follows" %}
+									<option value="{{forloop.counter}}">{{opt}}</option>	
+								{% endif %}
+							{% endfor %}
+						</select>
+					{% else %}
+						{{ word }}
+					{% endif %}
+				{% endfor %}
+			</p>
+			<input name="smpl" type="hidden" value="{{smpl}}" />
+			<p class="cursorWrap" title="[Branka] Use this button to convert the text to an exportable blob for orther tools">
+				<input class="button statefulButton" type="submit" value="Export to text" />
+			</p>
+			</form>
+		</div> 
+{% else %}
+		<p>Please use the <a href="/#explore">explore tab</a> to enter a text sample. </p>
+{% endif %}
+	</section>
+
+	<section class="tabContent" role="tabpanel" aria-labelledby="tabExport" id="panelExport" tabindex="-1">
+{% if generated %}
+	    <label title="Branka: Your text with better verbs. ">
+		  Your new text sample: 
+		  <textarea readonly autocomplete="off" name="smpl2" id="smpl2" rows=10 cols="50">{{ generated }}</textarea>
+		</label>
+{% else %}
+		<p>Please use the <a href="/#explore">explore tab</a> to enter a text sample. </p>
+{% endif %}
+	</section>
+
+</div>
+</div>
+
+
+  <script>
+function defaultTab(loc, dom) {
+	if(! loc.hash) {
+		return;
+	}
+
+	let id=loc.hash.substring(1);
+	let obj=null;
+	switch(id) {
+	case "explore":
+		obj=dom.querySelector( 'input[type="radio"][value="explore"]');
+		break;
+
+	case "choice":
+		obj=dom.querySelector( 'input[type="radio"][value="choice"]');
+		break;
+
+	case "export":
+		obj=dom.querySelector( 'input[type="radio"][value="export"]');
+		break;
+
+	default:
+		throw new Error("Panic! fail! unknown tab selected "+loc.hash );
+
+	}
+	if(obj) {
+		// possible need to unset the other ones
+		obj.setAttribute("checked", "checked");
+	}
+}
+defaultTab(location, document);
+
+  </script>
+{% endblock content %}
+ 
