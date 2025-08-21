@@ -1,11 +1,11 @@
 import sqlite3
 from sqlite3 import Cursor
-from typing import Final, List, Self, Type
+from typing import Final 
 
 TEST_DB: Final[str] = "/tmp/test1.dbx"
 
 
-def createTestDB(fn: str) -> Cursor:
+def create_test_db(fn: str) -> Cursor:
     sql = """
 BEGIN;
 
@@ -51,7 +51,7 @@ COMMIT;
     cur = db.cursor()
     sql2 = "SELECT sql FROM sqlite_master WHERE name= 'verb_groups';"
     res = cur.execute(sql2)
-    if res.fetchone() == None:
+    if res.fetchone() is None:
         cur.executescript(sql)
         db.commit()
 

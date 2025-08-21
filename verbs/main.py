@@ -17,12 +17,8 @@ from django.urls import path
 csfp = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if csfp not in sys.path:
     sys.path.insert(0, csfp)
-csfp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "views")
-if csfp not in sys.path:
-    sys.path.append(csfp)
 
-
-from factory import createVerbService
+from factory import create_verb_service
 from service import Service
 
 __package__ = "verbs"
@@ -41,7 +37,7 @@ def choices(reqt: HttpRequest) -> HttpResponse:
         return render(reqt, "index.html", {"smpl": "", "choice": None, "generated": None, "firsttab": "explore"})
     elif reqt.method == "POST":
         src: str = reqt.POST.get("smpl", "")
-        svr: Service = createVerbService(DB_NAME)
+        svr: Service = create_verb_service(DB_NAME)
         resp: list[str | list[str]] = svr.transform(src)
         return render(reqt, "index.html", {"smpl": src, "choice": resp, "generated": None, "firsttab": "choice"})
     else:
@@ -79,6 +75,5 @@ def index(reqt: HttpRequest) -> HttpResponse:
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
-    # for error, try adding some args to this call
     django.setup()
     execute_from_command_line()

@@ -1,11 +1,12 @@
 import os
 import sys
 import unittest
-from typing import Type
 
 sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), "..")))
 from text_tokeniser import TextTokeniser
 
+# pylint: disable=pointless-string-statement, f-string-without-interpolation, line-too-long 
+# these lint details I disable are all needed in the tests
 
 class testTextTokeniser(unittest.TestCase):
     # no local variables, its a test

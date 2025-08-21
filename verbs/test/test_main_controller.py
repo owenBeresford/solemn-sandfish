@@ -2,13 +2,12 @@ import os
 import re
 import sys
 import unittest
-from typing import Final, List, Self, Type
-
-import django
-from django.http import HttpRequest, HttpResponse
+from typing import Self
 
 # I am aware that the more recent Django docs favour making a client object,
 # but I think I need to inject settings to the requests i.e. POST
+import django
+from django.http import HttpRequest, HttpResponse
 from django.test.client import RequestFactory
 
 sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), "..")))
@@ -75,7 +74,7 @@ class TestMain(unittest.TestCase):
         self.assertEqual(ret, None)
 
     def test_export(self: Self) -> None:
-        pass  # code doesn't exist
+        pass  # code to test doesn't exist
 
 
 if __name__ == "__main__":

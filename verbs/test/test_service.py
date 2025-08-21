@@ -1,12 +1,12 @@
 import os
 import sys
 import unittest
-from typing import Final, List, Self, Type
+from typing import Self
 
 sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), "..")))
 sys.path.append(os.path.realpath(os.path.dirname(__file__)))
 
-from create_db import TEST_DB, createTestDB
+from create_db import TEST_DB, create_test_db
 from service import Service
 from text_tokeniser import TextTokeniser
 from verb_model import VerbModel, connect
@@ -15,7 +15,7 @@ from verb_model import VerbModel, connect
 class TestService(unittest.TestCase):
 
     def setUp(self: Self) -> None:
-        self._db = createTestDB(TEST_DB)
+        self._db = create_test_db(TEST_DB)
 
     def tearDown(self: Self) -> None:
         # erm?

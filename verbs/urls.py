@@ -8,6 +8,8 @@ from django.urls import path
 from . import views
 from .main import choices, export, index
 
+#pyline: disable=unused-import
+
 handler404 = views.error_404
 handler500 = views.error_500
 
