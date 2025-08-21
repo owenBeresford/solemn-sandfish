@@ -11,7 +11,7 @@ This needs form posts as the data is stored in a smol DB for ease of maintenance
  (assuming I can find a SQLlite ReactNative module).
 
 The user interactions should be fine on a variety of screen sizes.  They will 
-work for mobile touch and mouse.   A keyboard based normal behaving user should 
+work for mobile touch and mouse.   A keyboard based classic user should 
 be fine, but I would like to review on a screen reader as I /use/ CSS.   
 Currently a keyboard based hacker can bypass the error catching, and this leads
  to boring errors that expose nothing interesting.
@@ -21,7 +21,7 @@ test word of mandarin to the DB.
 I think this problem today is too small for an SPA.  It doesn't require real-
 time updates.   For small and isolated codebases, React in particular is 
 bloatware, and across time is an un-ending source of security problems.   If 
-this grew to something like grammarly or pro-writing-aid, then an SPA such as 
+this grew to something like Grammarly or ProWritingAid, then an SPA such as 
 React would be a good move.
 
 I believe in writing to the scale of NOW and keeping budget available for later.
@@ -79,7 +79,7 @@ All these commands assume you are in the project root, and can be added to an ID
 ### MAINTENANCE
 
 - A better server-side router if this code is kept (using JS terminology)
-- Possibly move service.py to REST API, but code is too smol todate
+- Possibly move service.py to REST API, but code is too smol to-date
 - Make CSS more readable and a module
 - Add web furniture
 - Currently only 1 JS function and no JS frameworks used.  If more features via
