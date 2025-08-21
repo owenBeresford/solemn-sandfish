@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- inline CSS, as server is clearly ill at the mo. -->
+<div style="text-align:center; min-width:400px; max-width:80%; margin-left:calc(40% - 400px ); margin-top:5em;">
+<h2>Halt, you requested an URL that doesn't exist </h2>
+<p>You asked for "{{ reqt_url }}", and this can only supply 
+<span style="font-size:250%; margin:16px;"> HTTP{{ code }} </span>
+</div>
+{% endblock content %}
