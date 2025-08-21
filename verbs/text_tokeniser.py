@@ -2,7 +2,7 @@ import re
 import tokenize
 from io import StringIO
 from re import Match
-from typing import Final, List, Self  
+from typing import Final, List, Self
 
 
 class TextTokeniser:
@@ -24,17 +24,16 @@ class TextTokeniser:
         self.src = sample
         # maybe move the regex flags to a class var
 
-    def setSample(self: Self, smpl: str) -> Self:
-		""" Blah. a setter, there are no surprises,
-		"""
+    def set_sample(self: Self, smpl: str) -> Self:
+        """Blah. a setter, there are no surprises,"""
         self.src = smpl
         return self
 
     def convert_sentences(self: Self) -> List[str]:
         """
         Attempt to partition data into sentences.
-        WARN: current use-case only considers "european structure languages", that use a fullstop 
-			char.
+        WARN: current use-case only considers "european structure languages", that use a fullstop
+            char.
 
         """
         ret: list[str] = []
@@ -50,8 +49,8 @@ class TextTokeniser:
         """
         Attempt to partition data into words, this uses a library, so probably correct.
 
-        UPDATE: I may not be able to use this build (this library is designed for code, not 
-		prose).
+        UPDATE: I may not be able to use this build (this library is designed for code, not
+        prose).
         Need to fix behaviour for compound-words, and add punctuation back in
         Semantics ought to be done with a line context as it will morph the meaning.
         #leSigh

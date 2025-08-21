@@ -20,7 +20,7 @@ class testVerbModel(unittest.TestCase):
         # erm?
         pass
 
-    def test_connect(self: Self)->None:
+    def test_connect(self: Self) -> None:
         self.assertTrue(isinstance(connect(TEST_DB), object))
         self.assertRaises(
             Exception,
@@ -28,21 +28,21 @@ class testVerbModel(unittest.TestCase):
             "/tmp/",
         )
 
-    def test_matchWeakVerb(self: Self) ->None:
+    def test_matchWeakVerb(self: Self) -> None:
         obj = VerbModel(self._db)
         self.assertTrue(obj.matchWeakVerb("goodverb"))
         self.assertFalse(obj.matchWeakVerb("badverb"))
         self.assertFalse(obj.matchWeakVerb(""))
         self.assertFalse(obj.matchWeakVerb(None))
 
-    def test_matchStrongVerb(self: Self) ->None:
+    def test_matchStrongVerb(self: Self) -> None:
         obj = VerbModel(self._db)
         self.assertTrue(obj.matchStrongVerb("goodverb"))
         self.assertFalse(obj.matchStrongVerb("badverb"))
         self.assertFalse(obj.matchStrongVerb(""))
         self.assertFalse(obj.matchStrongVerb(None))
 
-    def test_replaceVerb(self: Self) ->None:
+    def test_replaceVerb(self: Self) -> None:
         obj = VerbModel(self._db)
         val1 = obj.replaceVerb("goodverb")
         self.assertTrue(isinstance(val1, List))

@@ -1,3 +1,10 @@
 [MESSAGES CONTROL]
 disable= missing-module-docstring
+# I use a 1 class per file rule.   
+# Therefore the template module header reads "top docs: please see class javadoc several lines below"
+# In the "Django random bits of code" files does include these
+
+
+[FORMAT]
+max-line-length=120
 

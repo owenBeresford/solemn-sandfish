@@ -1,6 +1,6 @@
 import sqlite3
 from sqlite3 import Cursor
-from typing import Final 
+from typing import Final
 
 TEST_DB: Final[str] = "/tmp/test1.dbx"
 

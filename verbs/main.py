@@ -4,11 +4,9 @@ This will autolaod Django and start a HTTP service when run from the command lin
 
 import os
 import sys
-from typing import Any, Final, List, Self
+from typing import Final
 
 import django
-import requests
-from django.conf import settings
 from django.core.management import execute_from_command_line
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render

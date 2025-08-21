@@ -1,10 +1,11 @@
-from typing import Any, Final, List, Self
+from io import TextIOBase
+from typing import List, Self
 
 from text_tokeniser import TextTokeniser
 from verb_model import VerbModel
 
 
-class Service(object):
+class Service:
     """The wrapper/ abstraction for the transform to suggest alternatives to common and 'weak' verbs.
 
     This first edition is useless as it removes punctuation.
@@ -19,7 +20,7 @@ class Service(object):
         and injects alternative strong verbs at the relevant point
         """
         norm: str = sample.strip().lower()
-        self.tokr.setSample(norm)
+        self.tokr.set_sample(norm)
         ar: List[str] = self.tokr.convert_words()
         # TODO: support punctuation, support original casing, think about preserve white-space
 
@@ -34,4 +35,9 @@ class Service(object):
                 out.append(i)
         return out
 
-    # TODO add a steam interface, but unneeded in current edition
+    def transform_stream(self: Self, src: TextIOBase) -> TextIOBase:
+        """
+        EMPTY METHOD to keep pylint happy.
+        Unless I add a lot more server-side work, this isn't actually used
+        """
+        return src
