@@ -84,5 +84,6 @@ All these commands assume you are in the project root, and can be added to an ID
 - Add web furniture
 - Currently only 1 JS function and no JS frameworks used.  If more features via
 	 JS are added, add a framework
+- I am trying to have conservative choices to reduce code rot
 
 

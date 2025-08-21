@@ -1,11 +1,12 @@
-from typing import Type, Self, Final, List
 import sqlite3
 from sqlite3 import Cursor
+from typing import Final, List, Self, Type
 
-TEST_DB:Final[str] ="/tmp/test1.dbx"
+TEST_DB: Final[str] = "/tmp/test1.dbx"
 
-def createTestDB(fn:str)->Cursor:
-	sql="""
+
+def createTestDB(fn: str) -> Cursor:
+    sql = """
 BEGIN;
 
 create table verb_groups (
@@ -46,16 +47,16 @@ values
 
 COMMIT;
 """
-	db = sqlite3.connect( fn )
-	cur=db.cursor()
-	sql2="SELECT sql FROM sqlite_master WHERE name= 'verb_groups';"
-	res=cur.execute(sql2)
-	if res.fetchone() == None:
-		cur.executescript( sql)
-		db.commit()
-	
-	# I hope this will auto flush properly, I have no user level access to sqlite3_db_cacheflush()
-	return cur
+    db = sqlite3.connect(fn)
+    cur = db.cursor()
+    sql2 = "SELECT sql FROM sqlite_master WHERE name= 'verb_groups';"
+    res = cur.execute(sql2)
+    if res.fetchone() == None:
+        cur.executescript(sql)
+        db.commit()
+
+    # I hope this will auto flush properly, I have no user level access to sqlite3_db_cacheflush()
+    return cur
+
 
 # TODO: add destroyDB
-

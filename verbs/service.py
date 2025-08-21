@@ -1,36 +1,37 @@
-from text_tokeniser import TextTokeniser 
+from typing import Any, Final, List, Self
+
+from text_tokeniser import TextTokeniser
 from verb_model import VerbModel
-from typing import Any, Final, Self, List 
+
 
 class Service(object):
-	""" The wrapper/ abstraction for the transform to suggest alternatives to common and 'weak' verbs.
+    """The wrapper/ abstraction for the transform to suggest alternatives to common and 'weak' verbs.
 
-		This first edition is useless as it removes punctuation.  
-	"""
-	def __init__(self:Self, a:TextTokeniser, b:VerbModel)->Self:
-		self.tokr=a
-		self.verb=b
+    This first edition is useless as it removes punctuation.
+    """
 
-	def transform(self:Self, sample:str)->List[str|list[str]]:
-		""" Converts the sample from the user into a list of tokens, 
-				and injects alternative strong verbs at the relevant point 
-		"""
-		norm:str=sample.strip().lower()
-		self.tokr.setSample(norm)
-		ar:List[str]=self.tokr.convert_words()
-# TODO: support punctuation, support original casing, think about preserve white-space
+    def __init__(self: Self, a: TextTokeniser, b: VerbModel) -> Self:
+        self.tokr = a
+        self.verb = b
 
-		out:List[str]=[]
-		for i in ar:
-			if self.verb.matchWeakVerb(i):
-				tmp:list[str]=["list_follows"]
-				tmp.extend(self.verb.replaceVerb(i) )
-				out.append( tmp )			
+    def transform(self: Self, sample: str) -> List[str | list[str]]:
+        """Converts the sample from the user into a list of tokens,
+        and injects alternative strong verbs at the relevant point
+        """
+        norm: str = sample.strip().lower()
+        self.tokr.setSample(norm)
+        ar: List[str] = self.tokr.convert_words()
+        # TODO: support punctuation, support original casing, think about preserve white-space
 
-			else:
-				out.append(i)
-		return out
-		
-	# TODO add a steam interface, but unneeded in current edition
+        out: List[str] = []
+        for i in ar:
+            if self.verb.matchWeakVerb(i):
+                tmp: list[str] = ["list_follows"]
+                tmp.extend(self.verb.replaceVerb(i))
+                out.append(tmp)
 
+            else:
+                out.append(i)
+        return out
 
+    # TODO add a steam interface, but unneeded in current edition

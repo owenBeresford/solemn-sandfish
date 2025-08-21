@@ -1,6 +1,7 @@
-""" Python boilerplate, 
+"""Python boilerplate,
 in this file I setup PYTHONPATH so modules can be found more easily.
 """
+
 import os
 import sys
 

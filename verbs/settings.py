@@ -1,11 +1,12 @@
-""" Django boilerplate.
-    A Django requiremnent that stores the local settings for Django.
-    The important phrase is setting up templates """
+"""Django boilerplate.
+A Django requiremnent that stores the local settings for Django.
+The important phrase is setting up templates"""
+
 import os
 
 ROOT_URLCONF = "verbs.urls"
 DEBUG = False
-ALLOWED_HOSTS=["*"]
+ALLOWED_HOSTS = ["*"]
 
 SECRET_KEY = "unset-value"  # override this value
 # Add HTTPS
