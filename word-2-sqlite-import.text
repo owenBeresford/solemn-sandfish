@@ -1,0 +1,11 @@
+* open in some office app & export to txt
+* in vim:
+	* :set nobomb
+    * delete the free text section at the top
+	* select all, lower case
+ 	* %s/\t/ /g
+	* %s/  / /g
+	* manually swap the marked lines #leSigh 
+
+	* for today strip lines starting -
+

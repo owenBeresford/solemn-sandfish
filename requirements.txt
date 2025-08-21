@@ -1,0 +1,6 @@
+python>=3.12
+requests
+# should be newest version
+django
+sqlite4
+

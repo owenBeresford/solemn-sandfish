@@ -1,0 +1,10 @@
+[project]
+name = "verbs"
+version = "0.1.0"
+description = "Branka fillin here"
+
+[build-system]
+
+[tool.black]
+line-length = 120
+
