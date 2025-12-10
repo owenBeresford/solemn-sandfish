@@ -51,6 +51,10 @@ def choices(reqt: HttpRequest) -> HttpResponse:
 
 
 def export(reqt: HttpRequest) -> HttpResponse:
+    """ WARN: method not implemented
+        this would return your transformed text to a file format you want.
+    """
+
     #    smpl: str= reqt.POST.get("smpl", "")
     #     rslt:str = reqt.POST.get("" )
     print("TODO: add code here " + reqt.method, reqt.POST)

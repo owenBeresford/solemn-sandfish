@@ -13,6 +13,8 @@ class testTextTokeniser(unittest.TestCase):
     # no local variables, its a test
 
     def test_sentences1(self):
+        """this is a simple test"""
+
         str1: str = f"""This class chops large strings into smaller strings.
 I am making this a class so all the stupid UTF8 boundary-cases are shouved in one place, 
 		and the rest of the code will be more readable.
@@ -38,6 +40,8 @@ I haven't injected the deps' here, as I can't see swapping it would make sense."
         self.assertTrue(dat[0], "This class chops large strings into smaller strings")
 
     def test_sentences2(self):
+        """this is a simple test"""
+
         str1: str = (
             f"""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque scelerisque, sapien eget eleifend auctor, dolor metus hendrerit nunc, ac suscipit erat lorem at libero. Vivamus eu turpis id ligula consectetur lacinia. Duis malesuada lorem sem. Sed facilisis in urna id lobortis. Mauris in porta risus. Cras ut bibendum dolor, a pulvinar sem. Vivamus luctus condimentum quam, nec convallis tellus mollis in. Nulla egestas, ligula et malesuada hendrerit, quam sem condimentum erat, vel venenatis felis orci porttitor felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut consectetur diam nunc, eget laoreet ante sollicitudin vel. Quisque gravida et quam in feugiat. Phasellus fermentum quam a nunc mattis fermentum in ac eros. Fusce in nunc nulla. Donec eu nisi ultricies, fermentum arcu a, tempus est."""
         )
@@ -60,6 +64,8 @@ I haven't injected the deps' here, as I can't see swapping it would make sense."
         )
 
     def test_words1(self):
+        """this is a simple test"""
+
         str1: str = f"""This class chops large strings into smaller strings.
 I am making this a class so all the stupid UTF8 boundary-cases are shouved in one place, 
 		and the rest of the code will be more readable.

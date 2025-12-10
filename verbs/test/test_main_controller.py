@@ -17,14 +17,22 @@ from main import choices, export, index
 
 
 class TestMain(unittest.TestCase):
+    """this is a simple test"""
+
 
     def setUp(self: Self) -> None:
+        """this is a simple test"""
+
         self.fact = RequestFactory()
 
     def tearDown(self: Self) -> None:
+        """this is a simple test"""
+
         pass
 
     def test_index(self: Self) -> None:
+        """this is a simple test"""
+
         reqt: HttpRequest = self.fact.get("/")
         resp: HttpResponse = index(reqt)
         self.assertEqual(resp.status_code, 200)
@@ -45,6 +53,8 @@ class TestMain(unittest.TestCase):
         # self.assertNotEqual(resp2.status_code, 200)
 
     def test_choices(self: Self) -> None:
+        """this is a simple test"""
+
         reqt: HttpRequest = self.fact.post(
             "/v1/map-verbs",
             data={"smpl": "sdf sfsd sfs carry dgdfg dfg dgf"},
@@ -74,6 +84,8 @@ class TestMain(unittest.TestCase):
         self.assertEqual(ret, None)
 
     def test_export(self: Self) -> None:
+        """this is a simple test"""
+
         pass  # code to test doesn't exist
 
 
