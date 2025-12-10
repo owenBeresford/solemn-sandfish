@@ -30,6 +30,10 @@ up something like 10/s or 1,000/min with zero effort beyond finishing it.
 I would expect 80% of traffic to be in hot periods that account for 5-10% of a 
 week.
 
+### UPDATE Dec 2025: project folded
+After a several month gap, the other stakeholder is withdrawing, so I am closing 
+this project down. 
+
 
 ##  DELIVERABLE (stage 2):
 
@@ -37,11 +41,11 @@ Some of the following:
 - an app deployed to app stores, offering the same interactions as this fast 
 	demo
 - a REST API to do translations in bulk.  Not sure about utility of this unless 
-	the audience in a large scale XML person
+	the audience includes a large-scale XML system
 - a large PDF with interactions
 - direct retail of the DB to a vendor with similar services 
 
-Stage2 requires that the database is complete.  This is not waiting on me.
+NOTICE: Stage2 requires that the database is complete.  This is not waiting on me.
 
 
 ### Docs for manual steps
