@@ -30,7 +30,7 @@ up something like 10/s or 1,000/min with zero effort beyond finishing it.
 I would expect 80% of traffic to be in hot periods that account for 5-10% of a 
 week.
 
-### UPDATE Dec 2025: project folded
+# UPDATE Dec 2025: project folded [FROZEN]
 All the earlier commits where on the same day (Aug 21st).
 After a several month gap, the other stakeholder is withdrawing, so I am closing 
 this project down. 
