@@ -1,6 +1,6 @@
 
 
-## DELIVERABLE (stage 1):
+## DELIVERABLE (stage 1): [TICK]
 
 This is a nano app, that I am assembling in Django, until other aspects of this 
 problem are more mature.  A future version may be ReactNative and offline after 
@@ -31,14 +31,17 @@ I would expect 80% of traffic to be in hot periods that account for 5-10% of a
 week.
 
 
-##  DELIVERABLE (stage 2):
+##  DELIVERABLE (stage 2): [DASH]
 
-Some of the following:
+*Some* of the following:
+- a slightly larger real SPA app, so it resembles the existing vendors better
+    I'm thinking about Webcomponents for this to keep the code volume down
 - an app deployed to app stores, offering the same interactions as this fast 
 	demo
 - a REST API to do translations in bulk.  Not sure about utility of this unless 
-	the audience in a large scale XML person
-- a large PDF with interactions
+	the audience is a large scale XML user
+- a large PDF *with interactions*
+    The interactions may make this not possible, like interstitials or popup windows in the PDF doc
 - direct retail of the DB to a vendor with similar services 
 
 Stage2 requires that the database is complete.  This is not waiting on me.
@@ -49,11 +52,16 @@ Stage2 requires that the database is complete.  This is not waiting on me.
 [like npm packages.json steps, but needs to happen after you have a dev Python installed]
 All these commands assume you are in the project root, and can be added to an IDE if you wished.
 
+Tools can be handled easier if the project base_directory is in the PYTHON_PATH.   You could do the following (not sure about this step, as its not production code):
+   pwd > $(python -m site --user-site)/verbs.pth
+
 - install: pip install -r requirements.txt
 - install-build: pip install -r requirements-dev.txt 
    - aka verbs-dev in Linux package naming schemes
 - build: # this is python, nil
    - for a large scale service, I would apply a byte code optimiser, but out-of-scope.
+- headers: stubgen --include-docstrings $FILES -o ./
+   - if code is changed a noticeable amount, it may be wise to do this step to spot link/import errors faster
 - lint: isort --profile black verbs/; black verbs/; pylint --recursive=y .
 - test: python verbs/test/  
 - run: python verbs/main.py runserver 
@@ -62,7 +70,7 @@ All these commands assume you are in the project root, and can be added to an ID
 
 ### LIMITATIONS:
 
-- Need to get finished DB before adding more features
+- Need to get a finished DB before adding more features
 - Need to rebuild CSS as proper module
 - Need to add web furniture like a favico
 - Need to review the CSS/HTML5 form controls on a variety of phones
@@ -70,13 +78,13 @@ All these commands assume you are in the project root, and can be added to an ID
 	more messy than it should be
 
 
-### FURTHER FEATURES
+### FURTHER FEATURES (basic)
 
 - Support punctuation is responses
 - Dictionaries for further languages
 
 
-### MAINTENANCE
+### MAINTENANCE for stage1
 
 - A better server-side router if this code is kept (using JS terminology)
 - Possibly move service.py to REST API, but code is too smol to-date
@@ -84,6 +92,7 @@ All these commands assume you are in the project root, and can be added to an ID
 - Add web furniture
 - Currently only 1 JS function and no JS frameworks used.  If more features via
 	 JS are added, add a framework
-- I am trying to have conservative choices to reduce code rot
+- I am trying to have conservative choices to reduce code rot (see earlier 
+	data files from 2y ago)
 
 
