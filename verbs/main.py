@@ -51,8 +51,8 @@ def choices(reqt: HttpRequest) -> HttpResponse:
 
 
 def export(reqt: HttpRequest) -> HttpResponse:
-    """ WARN: method not implemented
-        this would return your transformed text to a file format you want.
+    """WARN: method not implemented
+    this would return your transformed text to a file format you want.
     """
 
     #    smpl: str= reqt.POST.get("smpl", "")

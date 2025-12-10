@@ -19,7 +19,6 @@ from main import choices, export, index
 class TestMain(unittest.TestCase):
     """this is a simple test"""
 
-
     def setUp(self: Self) -> None:
         """this is a simple test"""
 
