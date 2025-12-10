@@ -31,6 +31,7 @@ I would expect 80% of traffic to be in hot periods that account for 5-10% of a
 week.
 
 ### UPDATE Dec 2025: project folded
+All the earlier commits where on the same day (Aug 21st).
 After a several month gap, the other stakeholder is withdrawing, so I am closing 
 this project down. 
 
@@ -79,7 +80,9 @@ Tools can be handled easier if the project base_directory is in the PYTHON_PATH.
 - Need to add web furniture like a favico
 - Need to review the CSS/HTML5 form controls on a variety of phones
 - Why doesn't Django router support branching on HTTP VERB?  My Controller is 
-	more messy than it should be
+	more messy than it should be. 
+    Try djangorestframework  https://www.freecodecamp.org/news/how-to-build-a-rest-api-in-django/
+    https://python-rest-framework.readthedocs.io/en/latest/reference/controller.html
 
 
 ### FURTHER FEATURES (basic)
